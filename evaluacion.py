@@ -20,9 +20,36 @@ def recibir():
   num = []
   for e in range(cantidad):
     n = int(input(f"Ingresa el numero {e + 1}: "))
-    if n != " ":
-            num.append(n)
+    num.append(n)
   print(numerosenteros(num))
+
+# Ejercicio 6 - Jonathan Alquinta
+'''Crear una función que reciba una lista de edades y clasifique a las 
+ personas en tres grupos: menores de edad, adultos y adultos mayores (60+).
+ Debe mostrar la cantidad de personas en cada grupo.'''
+
+def pedi_edades():
+    edades = []
+    n = int(input("¿Cuantas edades vas a ingresar?: "))
+    for i in range(n):
+        edad = int(input("Ingresar una edad: "))
+        edades.append(edad)
+    return edades
+
+def calsificar_edades(edades):
+    menor = 0
+    Adulto = 0
+    adultoMayor = 0
+    for edad in edades:
+        if edad < 18:
+            menor += 1
+        elif edad < 60:
+            adultoMayor += 1
+        else:
+            Adulto += 1
+    print(f"Menores: {menor}")
+    print(f"Adulto Mayor: {adultoMayor}")
+    print(f"Adultos: {Adulto}")
 
 def limpiar_consola():
     os.system('cls')
@@ -32,9 +59,8 @@ while continuar:
     print("\n- Ejercicios Python -")
     print("--- Ejercicio 1 ---")
     print("--- Ejercicio 2 ---")
-    print("--- Ejercicio 3 ---")
 
-    opcion = input("\n---Elije una opción: (1 - 3) (0 para salir): ")
+    opcion = input("\n---Elije una opción: (1 o 2) (0 para salir): ")
     if opcion == "1":
         limpiar_consola()
         print("\nEjecutar ejercicio 1: ")
@@ -42,6 +68,8 @@ while continuar:
     elif opcion == "2":
         limpiar_consola()
         print("\nEjecutar ejercicio 2: ")
+        lista = pedi_edades()
+        calsificar_edades(lista)
     elif opcion == "0":
         limpiar_consola()
         print("Saliendo...")
